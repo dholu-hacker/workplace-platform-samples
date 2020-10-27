@@ -23,7 +23,7 @@ $users_results = Invoke-RestMethod -Uri ($first_users_url) -Headers @{Authorizat
 $runonce = 1
 while(($users_results.paging.next) -or ($runonce)){
     foreach($user in $users_results.data){
-        if($user.picture.data.is_silhouette -eq $false){
+        if($user.picture.data.is_silhouette -eq $true){
             $body = (@{
                 recipient=@{
                     id=$user.id;
